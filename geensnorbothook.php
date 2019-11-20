@@ -160,7 +160,7 @@ $xml = simplexml_load_file("http://feeds.nos.nl/nosjournaal?format=xml");
 		
 		//Truukje te zorgen dat hij altijd het verschil met een toekomstige tijd berekent (anders neemt ie vandaag)
 		$dayCompensator = 1;
-		if (14 > $currentHour or ($currentHour == 13 and $currentMinute < 37))
+		if (14 <= $currentHour or ($currentHour == 13 and $currentMinute > 36))
 			{$dayCompensator = 0;}
 		$dayDate = date("y-m-d", strtotime("+ $dayCompensator day"));
 		
